@@ -1,0 +1,534 @@
+/* ++++++++++++++++++++++++++++++++++++++++++++ */
+/* +++++++++ Propiedades y "Extends" ++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++ */
+
+/*Importem la font desitjada de googe que hem obtingut amb el selector a través de la API */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+$myFont: "Montserrat", "Arial", "Helvetica", "sans-serif";
+$oneColor: #187c66;
+$twoColor: #b46c19;
+$logoSize: 250px;
+
+%three-column-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  grid-gap: 30px;
+}
+
+%row-flex {
+  display: flex;
+  flex-flow: row wrap;
+  /*El detall de fer us de "space-evenly" fa que es mantinguin centrats amb el salt de linia de l'element*/
+  justify-content: space-evenly;
+  align-items: flex-start;
+  text-align: center;
+}
+
+%twoCol-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+%full-width {
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+  min-height: 75px;
+  height: auto;
+}
+
+/*Separador; fuente: https://css-tricks.com/examples/hrs/ */
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(218, 154, 18, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+/* ++++++++++++++++++++++++++++++++++ */
+/* +++++++++ Tipografías ++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++ */
+
+h1 {
+  font-size: 18px;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+h1,
+h2 {
+  color: $oneColor;
+}
+
+body {
+  font-family: $myFont;
+  font-size: 14px;
+  color: black;
+  line-height: 20px;
+  margin: 0px;
+}
+
+main {
+  padding: 10px 15vw;
+  text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+  .main {
+    padding: 10px 5vw;
+  }
+}
+
+main h1 {
+  font-family: Itim;
+  font-size: 2em;
+  font-weight: initial;
+  letter-spacing: 0.1em;
+  line-height: 1.3em;
+}
+
+.index-main {
+  font-size: 18px;
+}
+.hero img {
+  width: $logoSize;
+}
+
+a {
+  text-decoration: none;
+  color: $oneColor;
+  font-weight: 900;
+}
+
+a:hover {
+  color: $twoColor;
+}
+
+/* ++++++++++++++++++++++++++++++++++ */
+/* +++++++++ Portada ++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++ */
+
+.hero {
+  // background: linear-gradient(
+  //     to right,
+  //     rgba(250, 245, 239, 0.678),
+  //     rgba(33, 112, 88, 0.411),
+  //     rgba(250, 245, 239, 0.678)
+  //   ),
+  //   url(../img/Arcusa-dron-opacity.webp) no-repeat center center fixed;
+  //
+  background-image: url("../img/Arcusa-dron-opacity.webp");
+  background-size: cover;
+}
+
+.hero h1,
+.hero h2,
+.hero a {
+  color: white;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+.main-logo {
+  @extend %row-flex;
+}
+
+.flex-container {
+  @extend %row-flex;
+  border-radius: 15px 15px;
+  // background: rgba(255, 255, 255, 0.6);
+  padding: 5px;
+}
+
+.flex-container .sub-img {
+  max-width: 150px;
+  flex-grow: 1;
+  margin: 10px 10px;
+}
+
+.hero .box {
+  background-color: rgba(15, 119, 102, 0.651);
+  border-radius: 5px;
+  padding: 20px;
+  clip-path: circle(49%);
+  transition: clip-path 0.5s;
+}
+
+.hero .box:hover {
+  clip-path: circle(75%);
+}
+
+.hero svg {
+  fill: white;
+}
+.hero svg:hover {
+  fill: $twoColor;
+}
+
+/* ++++++++++++++++++++++++++++++++++ */
+/* +++++++++ Header +++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++ */
+
+.main-header img {
+  max-width: 10vw;
+}
+
+@media screen and (max-width: 900px) {
+  .main-header img {
+    max-width: 125px;
+  }
+}
+
+.main-header > .header-container {
+  @extend %row-flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+
+.header-container > .header-logo,
+.header-container > .header-right {
+  flex-grow: 1;
+}
+
+.header-container > .main-nav {
+  flex-grow: 5;
+}
+
+/* +++++++ Header Nav ++++++++ */
+.main-nav ul {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 700;
+  color: black;
+}
+
+nav li.active a {
+  color: $oneColor;
+  font-weight: 700;
+}
+
+/*alfa de 0,5*/
+nav a:hover {
+  opacity: 0.6;
+}
+
+nav li {
+  display: inline;
+  margin-right: 15px;
+}
+
+.main-header .header-logo {
+}
+
+.main-nav > h2 {
+  font-family: Itim;
+  font-size: 3em;
+  font-weight: lighter;
+  letter-spacing: 0.1em;
+  line-height: 1.3em;
+  color: black;
+}
+
+/* ++++++++++++++++++++++++++++++++++ */
+/* +++++++++ Footer +++++++ +++++++++ */
+/* ++++++++++++++++++++++++++++++++++ */
+
+.main-footer {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(207, 176, 136, 0.781),
+      rgba(33, 112, 88, 0.712)
+    ),
+    url("../img/terracita.jpg");
+  background-color: rgb(255, 233, 194);
+  margin-top: 30px;
+  padding: 50px 0px;
+  background-size: cover;
+  color: white;
+  letter-spacing: 0.2em;
+  font-size: 1.5em;
+}
+
+.main-footer > .footer-container {
+  @extend %row-flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main-footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.main-footer ul li {
+  padding: 5px;
+}
+
+div.social {
+  display: flex;
+  justify-content: center;
+}
+
+div.social object {
+  width: 100px;
+  margin: 5px;
+}
+
+div.social .icon-footer:hover {
+  filter: invert(100%);
+}
+
+.main-footer a {
+  color: white;
+  font-weight: 500;
+}
+
+.main-footer a:hover {
+  color: black;
+}
+
+/* ++++++++++++++++++++++++++++++++++ */
+/* +++++++++ Especialidades +++++++++ */
+/* ++++++++++++++++++++++++++++++++++ */
+
+.grid-container {
+  @extend %three-column-grid;
+}
+
+.grid-container figure {
+  all: unset;
+  text-align: left;
+  width: 100%;
+}
+
+.grid-container img {
+  border-radius: 15px 15px;
+  width: 100%;
+  height: auto;
+}
+
+.grid-container a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 900px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ++++++++++++++++++++++++++++++++++ */
+/* ++++++ Recetas // Detall +++++++++ */
+/* ++++++++++++++++++++++++++++++++++ */
+
+main.myRecipies {
+  text-align: left;
+}
+
+.featured-container {
+  position: relative;
+}
+
+.featured-img {
+  width: 100%;
+  filter: drop-shadow(8px 8px 10px gray);
+  border-radius: 15px 0px;
+}
+
+.featured-txt {
+  position: absolute;
+  top: 15%;
+  left: 30px;
+  font-size: 2em;
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px 5px;
+  font-size: 2vw;
+  padding: 0px 10px;
+}
+
+.featured-txt h1 {
+  line-height: 1em;
+  color: white;
+}
+
+.two-column {
+  @extend %twoCol-flex;
+  flex-wrap: wrap;
+}
+
+.left-column {
+  flex-wrap: wrap;
+  flex: 2 2 300px;
+  padding: 20px;
+}
+
+.right-column {
+  text-align: center;
+  flex-wrap: wrap;
+  flex: 1 1 150px;
+  padding: 20px;
+}
+
+.right-column ul {
+  list-style: none;
+}
+
+.right-column img {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* ++++++++++++++++++++++++++++++++++ */
+/* +++++++++ Presentación +++++++++++ */
+/* ++++++++++++++++++++++++++++++++++ */
+
+.two-column-same {
+  @extend %twoCol-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .two-column-same {
+    flex-flow: row wrap;
+  }
+}
+
+.wo-column-same > img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.present-right,
+.present-left {
+  padding: 10px;
+}
+
+.present-right img {
+  max-width: 20vw;
+}
+
+// Haciendo un iframe responsive: https://cybmeta.com/como-hacer-un-iframe-responsive
+.video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+
+.video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rotate {
+  animation-name: spin;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ++++++++++++++++++++++++++++++++++ */
+/* ++++ Fuentes del contenido +++++++ */
+/* ++++++++++++++++++++++++++++++++++ */
+
+.full-width-1 {
+  @extend %full-width;
+  background: linear-gradient(90deg, transparent, $oneColor, transparent);
+  //background-color: $oneColor;
+}
+
+.full-width-1 h2 {
+  color: white;
+  text-align: center;
+  padding: 30px 10px;
+}
+
+/**************************************************************************/
+/* BREADCRUM -> https://www.w3schools.com/howto/howto_css_breadcrumbs.asp*/
+/**************************************************************************/
+ul.breadcrumb {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+  color: #1c1c1c;
+  font-family: "Open Sans", sans-serif, arial;
+}
+
+/* Llistar sobre la horitzontal */
+ul.breadcrumb li {
+  display: inline;
+}
+
+/* Afegir els "slash" com a separadors */
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  text-decoration: none;
+  opacity: 1;
+  color: #1c1c1c;
+}
+
+ul.breadcrumb li a:visited {
+  color: unset;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  opacity: 0.5;
+}
+
+ul.breadcrumb li.active {
+  opacity: 0.5;
+}
