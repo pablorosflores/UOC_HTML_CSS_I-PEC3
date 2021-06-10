@@ -20,5 +20,8 @@
     "parcel-plugin-imagemin": "^4.0.2",
     "rimraf": "^3.0.2",
     "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "vanilla-lazyload": "^17.4.0"
   }
 }
