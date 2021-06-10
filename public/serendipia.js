@@ -1,9 +1,12 @@
+import images from '../img/*.jpg';
+
 let imgChange = document.getElementById("myImg");
 
-imgChange.addEventListener("mouseover", (event) => {
-  event.target.src = require("../img/manon2.jpg");
+imgChange.addEventListener("mouseover", () => {
+  console.log(images);
+  //document.getElementById("toChange").srcset = require("../img/manon2.jpg");
 });
 
-imgChange.addEventListener("mouseout", (event) => {
-  event.target.src = require("../img/manon.jpg");
+imgChange.addEventListener("mouseout", () => {
+  console.log(images);
 });
