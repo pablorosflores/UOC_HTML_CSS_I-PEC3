@@ -127,6 +127,10 @@ a:hover {
   //   url(../img/Arcusa-dron-opacity.webp) no-repeat center center fixed;
   //
   background-image: url("../img/Arcusa-dron-opacity.webp");
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
